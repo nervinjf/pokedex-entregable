@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const Characters = () => {
 
     const [pokemon, setPokemon] = useState([]);
-    const [check, setCheck] = useState("");
+    const [check, setCheck] = useState(false);
     const [typesList, setTypesList] = useState([]);
     const [nameInput, setNameInput] = useState("");
 
@@ -47,14 +47,8 @@ const Characters = () => {
         pageNumbers.push(i)
     }
     // ---------------------------------------------------------
-    
-
-    useEffect(() => {
-        typesList.map(type => (
-            setCheck(type.name)
-            
-        ))  
-    }, []);
+    const search = document.querySelector(".search");
+    const select = document.querySelector(".select-pokemon")
        
     console.log(check)
     return (
@@ -68,11 +62,14 @@ const Characters = () => {
                 <div>
                     <div className='select-type-pokemon'>
                         <p>Type</p>
-                        <input type="checkbox" name="" id="" />
+                        <div className='toogle'>
+                            <input type="checkbox" name="" id="" checked={check} onClick={e =>  setCheck(e.target.checked)}/>
+                        </div>
+                        
                         <p>Search</p>
                     </div>
                     <div className='select-pokemon'>
-                        <div className='Select'>
+                        <div className='Select' style={{display: check === false ? "block" : "none"}}>
                             <select onChange={e => searchLocations(e.target.value)}>
                                 {
                                     typesList.map(type => (
@@ -82,7 +79,7 @@ const Characters = () => {
 
                             </select>
                         </div>
-                        <div className='search'>
+                        <div className='search' style={{display: check === true ? "block" : "none"}}>
                             <input type="text" placeholder='Search Pokemon' value={nameInput}
                                 onChange={e => setNameInput(e.target.value)} />
                             <button onClick={searchPokemon}><i class="fa-solid fa-magnifying-glass"></i></button>
