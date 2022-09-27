@@ -25,6 +25,15 @@ body {
 
 @media screen and (min-width:1024px) {
 
+    @keyframes rotate{
+      from{
+        transform: rotateZ(0deg);
+      }
+      to{
+        transform: rotateZ(360deg);
+      }
+    }
+
   .pokeball-back1 {
     background-image: url(./img/pokeball.81cfacf9.png);
     width: 300px;
@@ -37,18 +46,20 @@ body {
     background-size: cover;
     opacity: 30%;
     z-index: -1;
-    animation-direction: reverse;
-    animation: rotation 2s infinite linear;
   }
 
-  .pokeball-back1:hover{
-    animation: rotate 3s linear infinite;
-    transform-origin: 50% 50%;
+  .pokeball-back1{
+    animation-name: rotate;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
   }
 
-  .pokeball-back2 {
-    animation: rotate 3s linear infinite;
-    transform-origin: 50% 50%;
+  .pokeball-back2{
+    animation-name: rotate;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
   }
 
   .pokeball-back2 {
@@ -63,7 +74,6 @@ body {
     background-size: cover;
     opacity: 70%;
     z-index: 1;
-    animation-direction: reverse;
   }
 
   .move-input {
