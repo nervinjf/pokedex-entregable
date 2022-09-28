@@ -50,8 +50,6 @@ const Characters = () => {
     for (let i = 1; i <= totalPage; i++) {
         pageNumbers.push(i)
     }
-    
-    const theme = useSelector(state => state.change)
 
     return (
         <>

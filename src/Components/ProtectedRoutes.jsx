@@ -8,10 +8,10 @@ const ProtectedRoutes = () => {
 		// Aquí va la condición. Puede ser una condición de cualquier tipo. Lo que 
 		// Importa es que valide si el usuario está loggeado o no
         // name !== ""
-    if(name !== ""){
+    if(true){
         return <Outlet />
     } else { 
-        alert("Pro favor ingrese su nombre")
+        alert("Por favor ingrese su nombre")
         return <Navigate to='/' />
         
     }                     // Aquí le debemos decir la ruta a la que queremos llevar
