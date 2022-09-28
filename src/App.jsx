@@ -14,15 +14,19 @@ function App() {
 
   const theme = useSelector(state => state.change)
 
+  useEffect(() =>{
+    document.body.setAttribute('data-theme', theme);
+  }, [theme])
+
   return (
     <div className='body' >
     <HashRouter>
       <Routes>
         <Route path="/" element={<UserInput/>}/>
+        <Route path="/settings" element={<Settings/>}/>
         <Route element={<ProtectedRoutes/>}>
         <Route path="/characters" element={<Characters/>}/>
         <Route path="/charactersdetails/:id" element={<CharactersDetails/>}/>
-        <Route path="/settings" element={<Settings/>}/>
         </Route>
       </Routes>
     </HashRouter>

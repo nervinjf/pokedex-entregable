@@ -114,7 +114,8 @@ const Characters = () => {
                     ><i class="fa-solid fa-angles-left"></i></button>
                     {
                         pageNumbers.map(number => (
-                            <button onClick={() => setPage(number)}>{number}</button>
+                            <button onClick={() => setPage(number)} value={number} style={{background: number ===  number ? "fff" : 'fff'}}
+                            >{number}</button>
                         ))
 
                     }

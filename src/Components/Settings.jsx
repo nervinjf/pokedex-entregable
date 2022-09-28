@@ -17,7 +17,7 @@ const Settings = () => {
 
     return (
         < >
-            <div className='pokeball-back1'></div>
+            
             <div className='container-pag-setting' >
                 <button className='button-back1' onClick={() => navigate(-1)}><i class="fa-solid fa-caret-left"></i></button>
                 <h1>Settings</h1>
@@ -48,7 +48,7 @@ const Settings = () => {
                 </div>
 
             </div>
-
+            <div className='pokeball-back1'></div>
         </>
     );
 };
