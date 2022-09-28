@@ -11,7 +11,9 @@ const ProtectedRoutes = () => {
     if(name !== ""){
         return <Outlet />
     } else { 
+        alert("Pro favor ingrese su numbre")
         return <Navigate to='/' />
+        
     }                     // Aquí le debemos decir la ruta a la que queremos llevar
 };                        // al usuario si no está autenticado
 
