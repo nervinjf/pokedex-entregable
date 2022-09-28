@@ -17,24 +17,27 @@ const UserInput = () => {
     }
 
     return (
-    <>
-        <div className='pokeball-back1'></div>
-        <div className='move-input'>
-        <div className='box'>
-            <div className='hash'>
-                <h2>Hello trainer!</h2>
-                <img src={hash} alt="" />
+        <>
+            <div className='container-settings'>
+                <button onClick={() => navigate("/settings")}><i class="fa-solid fa-gear"></i></button>
             </div>
-            <div className='otro'>
-                <p>Give me your name to start</p>
-                <div className='move-button'>
-                <input type="text" value={userName} onChange={e => setUserName(e.target.value)} />
-                <button onClick={dispatchUserName}><i class="fa-solid fa-paper-plane"></i></button>
+            <div className='pokeball-back1'></div>
+            <div className='move-input'>
+                <div className='box'>
+                    <div className='hash'>
+                        <h2>Hello trainer!</h2>
+                        <img src={hash} alt="" />
+                    </div>
+                    <div className='otro'>
+                        <p>Give me your name to start</p>
+                        <div className='move-button'>
+                            <input type="text" value={userName} onChange={e => setUserName(e.target.value)} />
+                            <button onClick={dispatchUserName}><i class="fa-solid fa-paper-plane"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        </div>
-    </>
+        </>
     );
 };
 

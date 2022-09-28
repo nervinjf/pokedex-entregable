@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux/es/exports';
 import Characterscard from './Characterscard';
 import { useNavigate } from 'react-router-dom';
+import { getNumber } from '../store/slice/number.slice';
+import { useDispatch } from 'react-redux';
 
 const Characters = () => {
 
@@ -35,8 +37,10 @@ const Characters = () => {
             .then(res => setPokemon(res.data.pokemon))
     }
 
+    const number = useSelector(state => state.number);
+
     const [page, setPage] = useState(1);
-    const charactersPerPage = 28;
+    const charactersPerPage = number;
     const lastCharactersIndex = page * charactersPerPage;
     const firstCharactersIndex = lastCharactersIndex - charactersPerPage;
     const charactersPaginater = pokemon.slice(firstCharactersIndex, lastCharactersIndex);
@@ -46,17 +50,24 @@ const Characters = () => {
     for (let i = 1; i <= totalPage; i++) {
         pageNumbers.push(i)
     }
-    // ---------------------------------------------------------
-    const search = document.querySelector(".search");
-    const select = document.querySelector(".select-pokemon")
-       
-    console.log(check)
+    
+    const theme = useSelector(state => state.change)
+
     return (
         <>
             <div className='pokeball-back1'></div>
-            <div className='container-pokedex'>
+            <div className='container-pokedex' >
                 <div className='welcome-pokexed'>
-                    <h1>Pokedex</h1>
+                    <div className='container-h1-leave'>
+                        <h1>Pokedex</h1>
+                        <div className='leave'>
+                        <button onClick={() => navigate("/")}><i class="fa-solid fa-right-from-bracket"></i></button>
+                        </div>
+                        <div className='container-settings'>
+                            <button onClick={() => navigate("/settings")}><i class="fa-solid fa-gear"></i></button>
+                        </div>
+                    </div>
+                    
                     <p>Welcome <b>{name}</b>, here you can find your favorite pokemon</p>
                 </div>
                 <div>
